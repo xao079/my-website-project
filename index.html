@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globaltrade-hub</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        
+       
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    GlobalTradeHub
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Markets</a>
+                    <a href="#" class="nav-link">Screener</a>
+                    <a href="#" class="nav-link">Portfolio</a>
+                    <a href="#" class="nav-link">News</a>
+                    <a href="#" class="nav-link">Learn</a>
+                </div>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline">Login</button>
+                    <button class="btn btn-primary">Sign Up</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+ <!---Apple Inc Stocks Chart-->
+  <!-- TradingView Widget -->
+<div class="tradingview-widget-container">
+    <div id="tradingview_chart"></div>
+    <script src="https://s3.tradingview.com/tv.js"></script>
+    <script>
+      new TradingView.widget({
+        "autosize": true,
+        "symbol": "NASDAQ:AAPL",
+        "interval": "D",
+        "theme": "light",
+        "hide_top_toolbar": true
+      });
+    </script>
+  </div>
+</head>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Stock Market Analysis Made Simple</h1>
+            <p>We will Find Your way, So you don't have to Look for a Shelter</p>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search for stocks, ETFs, or mutual funds">
+                    <button><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Overview -->
+    <section class="market-overview container">
+        <h2 class="section-title">Market Overview</h2>
+        <div class="market-indices">
+            <div class="index-card">
+                <h3>S&P 500</h3>
+                <div class="index-value">4,179.76</div>
+                <div class="change up">+34.21 (0.83%)</div>
+            </div>
+            <div class="index-card">
+                <h3>NASDAQ</h3>
+                <div class="index-value">12,575.65</div>
+                <div class="change up">+89.34 (0.72%)</div>
+            </div>
+            <div class="index-card">
+                <h3>DOW JONES</h3>
+                <div class="index-value">34,395.14</div>
+                <div class="change down">-45.12 (0.13%)</div>
+            </div>
+            <div class="index-card">
+                <h3>NIFTY 50</h3>
+                <div class="index-value">19,425.35</div>
+                <div class="change up">+125.50 (0.65%)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Stocks -->
+    <section class="container">
+        <h2 class="section-title">Top Gainers Today</h2>
+        <div class="stock-grid">
+            <div class="stock-card">
+                <div class="stock-header">
+                    <h3>Tata Motors</h3>
+                    <span class="stock-symbol">NSE: TATAMOTORS</span>
+                </div>
+                <div class="stock-price">
+                    <span class="current-price">₹985.50</span>
+                    <span class="price-change up">+1.2%</span>
+                </div>
+                <div class="stock-chart" id="tatamotorsChart"></div>
+                <button class="btn btn-outline" style="width: 100%;">View Analysis</button>
+            </div>
+            <div class="stock-card">
+                <div class="stock-header">
+                    <h3>Reliance Industries</h3>
+                    <span class="stock-symbol">NSE: RELIANCE</span>
+                </div>
+                <div class="stock-price">
+                    <span class="current-price">₹2,845.75</span>
+                    <span class="price-change up">+0.8%</span>
+                </div>
+                <div class="stock-chart" id="relianceChart"></div>
+                <button class="btn btn-outline" style="width: 100%;">View Analysis</button>
+            </div>
+            <div class="stock-card">
+                <div class="stock-header">
+                    <h3>Infosys</h3>
+                    <span class="stock-symbol">NSE: INFY</span>
+                </div>
+                <div class="stock-price">
+                    <span class="current-price">₹1,567.30</span>
+                    <span class="price-change up">+1.5%</span>
+                </div>
+                <div class="stock-chart" id="infyChart"></div>
+                <button class="btn btn-outline" style="width: 100%;">View Analysis</button>
+            </div>
+            <div class="stock-card">
+                <div class="stock-header">
+                    <h3>HDFC Bank</h3>
+                    <span class="stock-symbol">NSE: HDFCBANK</span>
+                </div>
+                <div class="stock-price">
+                    <span class="current-price">₹1,645.20</span>
+                    <span class="price-change up">+0.7%</span>
+                </div>
+                <div class="stock-chart" id="hdfcChart"></div>
+                <button class="btn btn-outline" style="width: 100%;">View Analysis</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="chart-section container">
+        <div class="chart-header">
+            <h2>Tata Motors (NSE: TATAMOTORS)</h2>
+            <div class="chart-controls">
+                <button class="active">1D</button>
+                <button>1W</button>
+                <button>1M</button>
+                <button>3M</button>
+                <button>1Y</button>
+                <button>5Y</button>
+            </div>
+        </div>
+        <canvas id="stockChart"></canvas>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio-section container">
+        <div class="portfolio-header">
+            <h2>Your Portfolio</h2>
+            <button class="btn btn-primary">+ Add Holding</button>
+        </div>
+        <div class="holdings-list">
+            <div class="holding-item">
+                <div class="holding-info">
+                    <span class="holding-symbol">TATAMOTORS</span>
+                    <span class="holding-meta">15 shares @ ₹945.50</span>
+                </div>
+                <div class="holding-value">₹14,182.50</div>
+            </div>
+            <div class="holding-item">
+                <div class="holding-info">
+                    <span class="holding-symbol">RELIANCE</span>
+                    <span class="holding-meta">5 shares @ ₹2,745.75</span>
+                </div>
+                <div class="holding-value">₹13,728.75</div>
+            </div>
+            <div class="holding-item">
+                <div class="holding-info">
+                    <span class="holding-symbol">INFY</span>
+                    <span class="holding-meta">10 shares @ ₹1,467.30</span>
+                </div>
+                <div class="holding-value">₹14,673.00</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">About Us</a></li>
+                        <li class="footer-link"><a href="#">Careers</a></li>
+                        <li class="footer-link"><a href="#">Blog</a></li>
+                        <li class="footer-link"><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Stock Screener</a></li>
+                        <li class="footer-link"><a href="#">Portfolio Tracker</a></li>
+                        <li class="footer-link"><a href="#">Market News</a></li>
+                        <li class="footer-link"><a href="#">IPO Tracker</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Help Center</a></li>
+                        <li class="footer-link"><a href="#">Tutorials</a></li>
+                        <li class="footer-link"><a href="#">API</a></li>
+                        <li class="footer-link"><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#">Terms</a></li>
+                        <li class="footer-link"><a href="#">Privacy</a></li>
+                        <li class="footer-link"><a href="#">Security</a></li>
+                        <li class="footer-link"><a href="#">Disclosures</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 GlobalTradeHUB. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Main stock chart
+            const ctx = document.getElementById('stockChart').getContext('2d');
+            const stockChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Tata Motors (NSE: TATAMOTORS)',
+                        data: [850, 870, 890, 910, 920, 940, 950, 960, 970, 980, 990, 985],
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false
+                        }
+                    }
+                }
+            });
+
+            // Mini charts for stock cards
+            const createMiniChart = (elementId, data, color) => {
+                const ctx = document.getElementById(elementId).getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: Array(data.length).fill(''),
+                        datasets: [{
+                            data: data,
+                            borderColor: color,
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            x: { display: false },
+                            y: { display: false }
+                        }
+                    }
+                });
+            };
+
+            // Sample data for mini charts
+            createMiniChart('tatamotorsChart', [900, 910, 915, 920, 925, 935, 940, 945, 950, 960, 970, 980, 985], '#16a34a');
+            createMiniChart('relianceChart', [2700, 2720, 2740, 2760, 2780, 2800, 2820, 2840, 2830, 2845], '#16a34a');
+            createMiniChart('infyChart', [1500, 1520, 1530, 1540, 1550, 1545, 1555, 1560, 1565, 1567], '#16a34a');
+            createMiniChart('hdfcChart', [1600, 1610, 1620, 1630, 1640, 1645, 1640, 1645, 1650, 1645], '#16a34a');
+
+            // Chart timeframe controls
+            document.querySelectorAll('.chart-controls button').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.chart-controls button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    // Here you would typically fetch new data based on the timeframe
+                    // For this example, we'll just update the main chart with random data
+                    const timeframes = {
+                        '1D': Array(24).fill(0).map((_, i) => 980 + Math.sin(i/4) * 10),
+                        '1W': Array(7).fill(0).map((_, i) => 960 + Math.sin(i) * 30),
+                        '1M': Array(30).fill(0).map((_, i) => 900 + Math.sin(i/5) * 80),
+                        '3M': Array(12).fill(0).map((_, i) => 850 + Math.sin(i/2) * 130),
+                        '1Y': Array(12).fill(0).map((_, i) => 800 + Math.sin(i) * 180),
+                        '5Y': Array(5).fill(0).map((_, i) => 500 + i * 100 + Math.random() * 50)
+                    };
+                    
+                    const newData = timeframes[this.textContent] || stockChart.data.datasets[0].data;
+                    stockChart.data.datasets[0].data = newData;
+                    stockChart.update();
+                });
+            });
+        });
+    </script>
+      <!-- Live Market Ticker -->
+<div class="ticker-container">
+    <div class="ticker">
+        <div class="ticker-item">NASDAQ: <span id="nasdaq">11,897.65</span> <span class="up">+0.42%</span></div>
+        <div class="ticker-item">DOW: <span id="dow">34,395.14</span> <span class="down">-0.12%</span></div>
+        <div class="ticker-item">S&P 500: <span id="sp500">4,179.76</span> <span class="up">+0.34%</span></div>
+    </div>
+    <iframe src=""></iframe>
+    
+</body>
+</html>
