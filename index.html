@@ -6,7 +6,6 @@
     <title>Globaltrade-hub</title>
     
     <link rel="stylesheet" href="styles.css">
-  
     <style>
         
        
@@ -241,47 +240,7 @@
         </div>
     </footer>
 
-
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        // Initialize charts
-        document.addEventListener('DOMContentLoaded', function() {
-            // Main stock chart
-            const ctx = document.getElementById('stockChart').getContext('2d');
-            const stockChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                    datasets: [{
-                        label: 'Tata Motors (NSE: TATAMOTORS)',
-                        data: [850, 870, 890, 910, 920, 940, 950, 960, 970, 980, 990, 985],
-                        borderColor: '#2563eb',
-                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
-                        borderWidth: 2,
-                        fill: true,
-                        tension: 0.4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        tooltip: {
-                            mode: 'index',
-                            intersect: false,
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false
-                        }
-                    }
-                }
-            });
-
+<script>
             // Mini charts for stock cards
             const createMiniChart = (elementId, data, color) => {
                 const ctx = document.getElementById(elementId).getContext('2d');
@@ -342,7 +301,8 @@
                     stockChart.update();
                 });
             });
-        });
+        
+        
     </script>
       <!-- Live Market Ticker -->
 <div class="ticker-container">
